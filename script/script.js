@@ -1,13 +1,13 @@
 const cards = document.querySelectorAll(".memoryCard");
 
 // Start game
-document.querySelector("#startGameButton").addEventListener("click", () => {
+document.querySelector(".startGameButton").addEventListener("click", () => {
   const game = document.querySelector(".memoryGame");
-  const startGame = document.querySelector("#startGameButton");
+  const startGameButton = document.querySelector(".startGameButton");
 
   game.style.visibility = "visible";
-  startGame.remove();
-  document.getElementById("header").remove();
+  startGameButton.style.visibility = "hidden";
+  document.getElementById("header").style.visibility = "hidden";
 });
 
 // Shuffle cards
@@ -39,9 +39,10 @@ function flipCard() {
 
 // Match cards
 cards.forEach((card) => card.addEventListener("click", flipCard));
+let counter = 0;
 
 matchCards = () => {
-  if (firstCard.dataset.framework === secondCard.dataset.framework) {
+  if (firstCard.dataset.character === secondCard.dataset.character) {
     if (firstCard.alt === secondCard.alt) {
       blockEvents();
       setTimeout(() => {
@@ -49,6 +50,14 @@ matchCards = () => {
         secondCard.style.visibility = "hidden";
         disableCards();
         restoreEvents();
+        counter += 1;
+        if (counter == cards.length / 2) {
+          //congrats msg
+          let newH1 = document.createElement("h1");
+          newH1.innerHTML = "Bravo Matej!";
+          document.body.appendChild(newH1);
+          newH1.classList.add("congratsMsg");
+        }
       }, 1000);
     }
     return;
@@ -84,14 +93,4 @@ blockEvents = () => {
 
 restoreEvents = () => {
   cards.forEach((card) => card.addEventListener("click", flipCard));
-};
-
-gameOver = () => {
-  if (
-    cards.forEach((card) => {
-      card.style.visibility === "hidden";
-    })
-  ) {
-    console.log("congrats");
-  }
 };
