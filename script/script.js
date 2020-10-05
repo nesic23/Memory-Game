@@ -54,7 +54,7 @@ matchCards = () => {
         if (counter == cards.length / 2) {
           //congrats msg
           const newH1 = document.createElement("h1");
-          newH1.innerHTML = "Congratulations!";
+          newH1.innerHTML = "Bravo Matej!";
           document.body.appendChild(newH1);
           newH1.classList.add("congratsMsg");
           const newGameButton = document.createElement("button");
