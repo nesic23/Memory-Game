@@ -53,10 +53,17 @@ matchCards = () => {
         counter += 1;
         if (counter == cards.length / 2) {
           //congrats msg
-          let newH1 = document.createElement("h1");
+          const newH1 = document.createElement("h1");
           newH1.innerHTML = "Congratulations!";
           document.body.appendChild(newH1);
           newH1.classList.add("congratsMsg");
+          const newGameButton = document.createElement("button");
+          document.body.appendChild(newGameButton);
+          newGameButton.appendChild(document.createTextNode("Play again?"));
+          newGameButton.classList.add("newGameButton");
+          newGameButton.addEventListener("click", () => {
+            document.location.href = "";
+          });
         }
       }, 1000);
     }
