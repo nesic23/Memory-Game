@@ -12,6 +12,7 @@ body {
   max-width: 100%;
   height: auto;
   position: relative;
+  font-family: "Bubblegum Sans", cursive;
 }
 
 .memoryGame {
@@ -25,10 +26,10 @@ body {
 }
 
 #header {
-  font-family: "aachen";
+  font-family: "Bubblegum Sans", cursive;
   font-size: 50px;
   top: 30px;
-  left: 28%;
+  left: 32%;
   padding-bottom: 20px;
   color: rgb(26, 49, 100);
   text-shadow: rgb(21, 43, 61);
@@ -73,7 +74,7 @@ body {
   background-color: rgb(26, 49, 100);
   border: none;
   font-weight: bold;
-  font-family: "aachen";
+  font-family: "Bubblegum Sans", cursive;
   font-size: 40px;
   border-radius: 20px;
   color: rgb(248, 20, 20);
@@ -92,10 +93,10 @@ body {
 }
 
 .congratsMsg {
-  font-family: "aachen";
+  font-family: "Bubblegum Sans", cursive;
   font-size: 60px;
   top: 30px;
-  left: 34%;
+  left: 38%;
   padding-bottom: 20px;
   color: rgb(248, 252, 10);
   text-shadow: rgb(21, 43, 61);
@@ -114,7 +115,7 @@ body {
   background-color: rgb(26, 49, 100);
   border: none;
   font-weight: bold;
-  font-family: "aachen";
+  font-family: "Bubblegum Sans", cursive;
   font-size: 40px;
   border-radius: 20px;
   color: rgb(248, 20, 20);
