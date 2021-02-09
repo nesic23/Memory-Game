@@ -4,37 +4,64 @@
   box-sizing: border-box;
 }
 
-body {
+body,
+html {
   background-image: url("/img/background3.jpg");
   background-size: cover;
   background-attachment: fixed;
+  overflow: hidden;
   background-repeat: no-repeat;
   max-width: 100%;
-  height: auto;
-  position: relative;
+  height: 100vh;
   font-family: "Bubblegum Sans", cursive;
 }
 
-.memoryGame {
-  margin-top: 5px;
-  margin-bottom: 5px;
+.memory-game {
+  margin-top: 100px;
   display: flex;
+  align-items: center;
+  justify-content: center;
   flex-wrap: wrap;
   visibility: hidden;
-  width: 720px;
+  width: auto;
   height: 710px;
 }
 
-#header {
+.header {
   font-family: "Bubblegum Sans", cursive;
-  font-size: 50px;
-  top: 30px;
-  left: 32%;
-  padding-bottom: 20px;
+  text-align: center;
+  font-size: 56px;
+  padding-top: 20px;
   color: rgb(26, 49, 100);
   text-shadow: rgb(21, 43, 61);
   text-shadow: 1px 1px;
-  position: fixed;
+}
+
+.btn-container {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+
+.start-game-btn {
+  background-color: rgb(26, 49, 100);
+  color: rgb(248, 20, 20);
+  margin-top: 200px;
+  padding: 15px 32px;
+  border: none;
+  font-weight: bold;
+  font-family: "Bubblegum Sans", cursive;
+  font-size: 40px;
+  border-radius: 20px;
+  text-decoration: none;
+  display: inline-block;
+}
+
+.start-game-btn:hover {
+  background-color: firebrick;
+  transition-duration: 0.5s;
+  color: rgb(26, 49, 100);
 }
 
 .front,
@@ -47,7 +74,7 @@ body {
   background: royalblue;
 }
 
-.memoryCard {
+.memory-card {
   width: calc(20% - 10px);
   height: calc(25% - 10px);
   margin: 3px;
@@ -57,79 +84,17 @@ body {
   transform: scale(1);
 }
 
-.memoryCard:active {
+.memory-card:active {
   transform: scale(0.97);
   transition: transform 0.2s;
 }
 
-.memoryCard.flip {
+.memory-card.flip {
   transform: rotateY(180deg);
 }
 
 .front {
   transform: rotateY(180deg);
-}
-
-.startGameButton {
-  background-color: rgb(26, 49, 100);
-  border: none;
-  font-weight: bold;
-  font-family: "Bubblegum Sans", cursive;
-  font-size: 40px;
-  border-radius: 20px;
-  color: rgb(248, 20, 20);
-  padding: 15px 32px;
-  text-decoration: none;
-  display: inline-block;
-  position: fixed;
-  left: 38%;
-  margin-top: 280px;
-}
-
-.startGameButton:hover {
-  background-color: firebrick;
-  transition-duration: 0.5s;
-  color: rgb(26, 49, 100);
-}
-
-.congratsMsg {
-  font-family: "Bubblegum Sans", cursive;
-  font-size: 60px;
-  top: 30px;
-  left: 38%;
-  padding-bottom: 20px;
-  color: rgb(248, 252, 10);
-  text-shadow: rgb(21, 43, 61);
-  text-shadow: 1px 1px;
-  position: fixed;
-}
-
-.congratsMsg {
-  animation: flyin 1.2s ease forwards;
-  opacity: 0;
-  transform: scale(2);
-  filter: blur(4px);
-}
-
-.newGameButton {
-  background-color: rgb(26, 49, 100);
-  border: none;
-  font-weight: bold;
-  font-family: "Bubblegum Sans", cursive;
-  font-size: 40px;
-  border-radius: 20px;
-  color: rgb(248, 20, 20);
-  padding: 15px 32px;
-  text-decoration: none;
-  position: fixed;
-  top: 30%;
-  left: 39%;
-}
-
-.newGameButton:hover {
-  background-color: firebrick;
-  transition-duration: 0.5s;
-  color: rgb(26, 49, 100);
 }
 
 @keyframes flyin {

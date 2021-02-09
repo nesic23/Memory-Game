@@ -1,22 +1,25 @@
-const cards = document.querySelectorAll(".memoryCard");
+const cards = document.querySelectorAll(".memory-card");
 
 // Start game
-document.querySelector(".startGameButton").addEventListener("click", () => {
-  const game = document.querySelector(".memoryGame");
-  const startGameButton = document.querySelector(".startGameButton");
+document.querySelector(".start-game-btn").addEventListener("click", () => {
+  const game = document.querySelector(".memory-game");
+  const startGameButton = document.querySelector(".start-game-btn");
+  const btnContainer = document.querySelector(".btn-container");
 
   game.style.visibility = "visible";
-  startGameButton.style.visibility = "hidden";
-  document.getElementById("header").style.visibility = "hidden";
+  btnContainer.style.display = "none";
+  startGameButton.style.display = "none";
 });
 
 // Shuffle cards
-(() => {
+const shuffleCards = () => {
   cards.forEach((card) => {
-    let shuffleCards = Math.floor(Math.random() * 20);
-    card.style.order = shuffleCards;
+    let shuffle = Math.floor(Math.random() * 20);
+    card.style.order = shuffle;
   });
-})();
+};
+
+shuffleCards();
 
 // Flip cards
 let hasFlippedCard = false;
@@ -52,17 +55,29 @@ matchCards = () => {
         restoreEvents();
         counter += 1;
         if (counter == cards.length / 2) {
+          const game = document.querySelector(".memory-game");
+          const btnContainer = document.querySelector(".btn-container");
           //congrats msg
+          game.style.display = "none";
+          btnContainer.style.display = "flex";
           const newH1 = document.createElement("h1");
-          newH1.innerHTML = "Bravo Matej!";
-          document.body.appendChild(newH1);
-          newH1.classList.add("congratsMsg");
           const newGameButton = document.createElement("button");
-          document.body.appendChild(newGameButton);
+
+          newH1.innerHTML = "Congratulations!";
+          newH1.classList.add("header");
           newGameButton.appendChild(document.createTextNode("Play again?"));
-          newGameButton.classList.add("newGameButton");
+          newGameButton.classList.add("start-game-btn");
+          btnContainer.appendChild(newH1);
+          btnContainer.appendChild(newGameButton);
           newGameButton.addEventListener("click", () => {
-            document.location.href = "";
+            game.style.display = "flex";
+            game.style.visibility = "visible";
+            btnContainer.style.display = "none";
+            cards.forEach((card) => {
+              card.classList.remove("flip");
+              card.style.visibility = "visible";
+              shuffleCards();
+            });
           });
         }
       }, 1000);
